@@ -691,8 +691,17 @@ button > a {
 .buton_flex:hover a,
 .buton_flex:hover a i,
 .buton_flex:hover a p {
+
     color: var(--white) !important;
 }
+
+.buton_flex:hover i,
+.buton_flex:hover p {
+    color: var(--white);
+}
+
+
+
 
 /* Efecto de transición suave para los elementos internos */
 .buton_flex a,
@@ -761,7 +770,7 @@ i {
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius-xl);
     padding: var(--space-6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
@@ -1842,3 +1851,62 @@ footer a {
         word-wrap: break-word;
     }
 }
+/* Contenedor con blur y borde */
+.project-image.coming-soon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor de los puntitos giratorios específico */
+.project-image.coming-soon .coming-soon-spinner-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Puntitos animados específicos */
+.project-image.coming-soon .coming-soon-spinner-dots div {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: coming-soon-bounce 2s infinite ease-in-out;
+}
+
+/* Diferentes delays para el efecto de rebote */
+.project-image.coming-soon .coming-soon-spinner-dots div:nth-child(1) { animation-delay: 0s; }
+.project-image.coming-soon .coming-soon-spinner-dots div:nth-child(2) { animation-delay: 0.4s; }
+.project-image.coming-soon .coming-soon-spinner-dots div:nth-child(3) { animation-delay: 0.8s; }
+
+/* Animación rebote específica */
+@keyframes coming-soon-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Texto animado específico */
+.project-image.coming-soon p.coming-soon-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-align: center;
+    animation: coming-soon-pulse 1.5s infinite;
+}
+
+/* Animación de pulso específica */
+@keyframes coming-soon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
