@@ -1,0 +1,1567 @@
+:root {
+  
+  --primary-color: #0066cc;   
+  --primary-dark: #004499;     
+  --primary-light: #4d94ff;   
+
+  --secondary-color: #ff6b35;      
+  --accent-color: #00cc99; 
+
+  /* Neutros sofisticados */
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --black: #000011;
+
+  /* Estados */
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+
+  /* Tipografía */
+  --font-family-primary: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-family-heading: 'Montserrat', 'Inter', sans-serif;
+
+  /* Tamaños de fuente */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Espaciados */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+  --wide: 1200px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Bordes */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+
+  --container-xs: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-full: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; 
+    width: 100%;
+    scroll-behavior: smooth;
+     background-color: #ebe6e6;
+}
+
+body {
+    font-size: 1rem;
+    height: auto;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2000;
+    background: #dedede;
+    background: linear-gradient(180deg,rgba(222, 222, 222, 1) 0%, rgba(204, 204, 204, 1) 69%);
+    border-bottom: solid #000011;
+    border-bottom: none;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    padding: 0 4%; 
+    transition: all 0.4s ease; 
+    transform-origin: top; /* Importante para la animación */
+    border-radius: 0px 0px 35px 35px;
+    box-shadow: 0 4px 12px rgb(0, 0, 0);
+}
+
+header.scrolled {
+    height: 68px; 
+    padding: 0 3%; 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 25px rgb(0, 0, 0);
+    transform: scaleY(0.9); 
+    border-radius: 0px 0px 40px 40px;
+
+}
+
+header > div {
+    width: 60px;
+}
+
+main {
+    width: auto;
+    height: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+    background-color: #ebe6e6;
+}
+
+section {
+    height: auto;
+    min-height: 75vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ANIMACIONES ESPECÍFICAS PARA LA SECCIÓN SOBRE MÍ */
+.sobremi .grid > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sobremi .div1 {
+    transform: translateX(-50px);
+    transition-delay: 0.1s;
+}
+
+.sobremi .div2 {
+    transform: translateX(50px) scale(0.9);
+    transition-delay: 0.3s;
+}
+
+.sobremi .div3 {
+    transform: translateY(50px);
+    transition-delay: 0.5s;
+}
+
+.sobremi .div4 {
+    transform: translateY(-50px);
+    transition-delay: 0.7s;
+}
+
+.sobremi.visible .grid > * {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Animación específica para la imagen */
+.sobremi .yo {
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.8) rotate(-5deg);
+}
+
+.sobremi.visible .yo {
+    transform: scale(1) rotate(0);
+}
+
+/* Animación para los botones individuales */
+.botones .buton_flex {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s ease-out;
+}
+
+.sobremi.visible .buton_flex:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.8s;
+}
+
+.sobremi.visible .buton_flex:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 1s;
+}
+
+.sobremi.visible .buton_flex:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 1.2s;
+}
+
+/* Animación para el texto de información personal */
+.sobremi .miInfo {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease-out;
+    transition-delay: 1.4s;
+}
+
+.sobremi.visible .miInfo {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ANIMACIONES PARA OTRAS SECCIONES */
+#skills.visible,
+#experiencia.visible,
+#projects.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ANIMACIONES PARA ELEMENTOS DENTRO DE OTRAS SECCIONES */
+#skills h1,
+#experiencia h1,
+#projects h1 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+#skills.visible h1,
+#experiencia.visible h1,
+#projects.visible h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+/*burguer*/
+.burguer {
+    width: 30px;
+    height: 25px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    left: 1%;
+}
+
+.burguer .bar {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color:  rgb(0, 0, 0);
+    transition: transform 0.3s;
+}
+
+.burguer .bar:nth-child(1) {
+    top: 5px;
+}
+
+.burguer .bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50);
+}
+
+.burguer .bar:nth-child(3) {
+    bottom: 0;
+}
+
+.burguer.open .bar:nth-child(1) {
+
+transform: translateY(9px) rotate(228deg);
+}
+
+.burguer.open .bar:nth-child(2) {
+    display: none;
+}
+
+.burguer.open .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-47deg);
+}
+
+/*menu*/
+.menu {
+    position: fixed;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 99;
+    border: 1px solid white;
+    background-color: rgb(225, 225, 218);
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.3px);
+    -webkit-backdrop-filter: blur(3.3px);
+    border: 1px solid rgba(255, 255, 255, 0.99);
+}
+
+.menu.open {
+    left: 0px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu a {
+    color: #000011;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+button > a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu a:hover {
+    color: white;
+    background: rgba(86, 86, 86, 0.915);
+}
+
+#sobremi {
+}
+
+#prueba {
+    width: 100px;
+    height: 100px;
+}
+
+#aparecer.activo > p {
+    color: green;
+}
+
+.sobremi {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    height: 100%;
+    width: 100%;
+}
+
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+}
+
+.div1 h1 {
+    font-size: 4rem;
+}
+
+.div1 p {
+    font-size: 2rem;
+}
+
+.div2 { 
+    grid-area: 1 / 2 / 3 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div3 { 
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 5%;
+    height: 25%;
+    padding-top: 10px;
+}
+
+/* botones */
+.buton_flex {
+    height: 60%;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items:center;
+    justify-content: center;
+    border-radius: 15px;
+    border: solid black;
+}
+
+
+.buton_flex a {
+    text-decoration: none;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Reset para textos dentro de botones */
+.buton_flex a p {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
+/* Efectos hover para los botones */
+.buton_flex:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border-color: #ff6b35;
+}
+
+.buton_flex.github:hover {
+    background: linear-gradient(135deg, #333 0%, #555 100%);
+    box-shadow: 0 8px 20px rgba(51, 51, 51, 0.3);
+}
+
+.buton_flex.linkedin:hover {
+    background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
+}
+
+.buton_flex.pdf:hover {
+    background: linear-gradient(135deg, #bb0000 0%, #ff4444 100%);
+    box-shadow: 0 8px 20px rgba(187, 0, 0, 0.3);
+}
+
+/* Cambiar color del texto e íconos al hacer hover */
+.buton_flex:hover a,
+.buton_flex:hover a i,
+.buton_flex:hover a p {
+    color: var(--white) !important;
+}
+
+/* Efecto de transición suave para los elementos internos */
+.buton_flex a,
+.buton_flex a i,
+.buton_flex a p {
+    transition: all 0.5s ease;
+}
+
+i {
+    color: #000011;
+}
+
+.yo {
+    height: 270px;
+    width: 245px;
+    border-radius: 100%;
+}
+
+.miInfo {
+    font-size: 1rem;
+}
+
+#skills {
+   
+}
+
+/* sKILLS  */
+
+.skills-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.section-title {
+    text-align: center;
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-12);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.skills-section.visible .section-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-container {
+    max-width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    column-gap: 100px;
+    padding: 0;
+    justify-items: start; 
+    row-gap: 15px;
+}
+
+.skills-category {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    width: 100%; 
+    
+}
+
+.skills-section.visible .skills-category {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-section.visible .skills-category:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.skills-section.visible .skills-category:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.skills-section.visible .skills-category:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.skills-category h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+    color: var(--black);
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--space-2);
+    display: inline-block;
+}
+
+.skill-item {
+    margin-bottom: var(--space-5);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+.skills-section.visible .skill-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: var(--text-lg);
+    color: var(--black);
+}
+
+.skill-percentage {
+    font-weight: 500;
+    color: var(--secondary-color);
+    font-size: var(--text-sm);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgb(10 10 10 / 20%);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    border-radius: 10px;
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 0% !important;
+}
+
+.skills-section.visible .skill-progress {
+    width: var(--target-width) !important;
+}
+
+/* Animación específica para cada barra de progreso */
+.skills-section.visible .skill-item:nth-child(1) .skill-progress {
+    transition-delay: 0.8s;
+}
+
+.skills-section.visible .skill-item:nth-child(2) .skill-progress {
+    transition-delay: 1s;
+}
+
+.skills-section.visible .skill-item:nth-child(3) .skill-progress {
+    transition-delay: 1.2s;
+}
+
+.skills-section.visible .skill-item:nth-child(4) .skill-progress {
+    transition-delay: 1.4s;
+}
+
+/* Efecto de brillo en hover */
+.skill-item:hover .skill-progress {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+        padding: 0 var(--space-4);
+    }
+    
+    .skills-category {
+        padding: var(--space-5);
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-8);
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-section {
+        padding: 60px 0;
+    }
+    
+    .skills-container {
+        padding: 0 var(--space-3);
+    }
+    
+    .skill-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-1);
+    }
+    
+    .skill-percentage {
+        align-self: flex-end;
+        margin-top: -20px;
+    }
+}
+
+
+
+/* Estudis */
+.experiencieSection{
+  margin: 50px 0;
+  
+ 
+  
+ 
+} 
+ol{
+  list-style: none;
+}
+.experiencialist{
+  border-inline-start:1px solid var(--secondary-color);
+  position: relative;
+  
+ 
+
+}
+.experienciaItems{
+  padding-left: 15px;
+  padding-bottom: 30px;
+ 
+
+}
+
+.circulo{
+  height: 15px;
+  width: 15px;
+  background-color: var(--secondary-color) ;
+  border-radius: 50px;
+  position: absolute;
+  left: -8px;
+  margin-top: 7px ;
+   
+
+}
+/*EXPERIENCIA */
+
+.experienciapos {
+  width: 500px;
+  
+}
+.experienciapospadre{
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+.experiencialist.segundo{
+  padding-left: 0px;
+}
+
+ol li h3{
+  margin: 0px;
+}
+ol li h4{
+  margin-top: 0px;
+}
+#experiencia{
+  padding-top: 5%;
+}
+
+.exp{
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-12);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+   
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  
+}
+
+/*PROYECTOS*/
+
+#projects {
+    padding-top: 5%;
+}
+
+.pro {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-12);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+#projects.visible .pro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px 0;
+    gap: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+#projects.visible .project-article {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#projects.visible .project-article:nth-child(1) {
+    transition-delay: 0.3s;
+}
+
+#projects.visible .project-article:nth-child(2) {
+    transition-delay: 0.6s;
+}
+
+.project-image {
+    width: 45%;
+    flex-shrink: 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.project-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-content h3 {
+    font-size: var(--text-2xl);
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.project-description p {
+    line-height: 1.7;
+    color: var(--gray-700);
+    font-size: var(--text-lg);
+}
+
+
+#projects .buton_flex {
+    height: 40px; 
+ 
+    width: 25%; 
+
+}
+
+
+#projects .buton_flex a {
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Hacer los íconos y texto más grandes en proyectos */
+#projects .buton_flex i {
+    font-size: 1.1rem;
+}
+
+#projects .buton_flex p.none {
+    font-size: 1.1rem;
+
+}
+
+/* Ajustar el contenedor de botones en proyectos */
+#projects .project-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Efectos hover específicos para proyectos */
+#projects .buton_flex:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/*FOOTER*/
+
+ footer{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  min-height: 60px;
+  align-items: center;
+  width: 100%;
+   background: linear-gradient(180deg,rgba(222, 222, 222, 1) 0%, rgba(204, 204, 204, 1) 69%);
+   box-shadow: 0 4px 25px rgb(0, 0, 0);
+   border-radius: 15px 15px 0px 0px;
+
+} 
+.posicion_foot{
+  display: flex;
+  justify-content: space-between;
+ width: 70%;
+} 
+
+footer a {
+  color: #000011;
+  text-decoration: none;
+}
+
+
+/* ANIMACIONES PARA EXPERIENCIA */
+.experiencieSection {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#experiencia.visible .experiencieSection {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.experienciaItems {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease-out;
+}
+
+#experiencia.visible .experienciaItems:nth-child(1) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.5s;
+}
+
+#experiencia.visible .experienciaItems:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.7s;
+}
+
+#experiencia.visible .experienciaItems:nth-child(3) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.9s;
+}
+
+/* ANIMACIONES PARA ESTUDIOS */
+#estudidos .experiencieSection {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#estudidos.visible .experiencieSection {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+#estudidos .experienciaItems {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease-out;
+}
+
+#estudidos.visible .experienciaItems:nth-child(1) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.5s;
+}
+
+#estudidos.visible .experienciaItems:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.7s;
+}
+
+/* ANIMACIONES PARA PROYECTOS - Elementos internos */
+.project-content h3 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.project-description p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+#projects.visible .project-content h3 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+#projects.visible .project-description p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+/* ANIMACIONES PARA BOTONES DE PROYECTOS */
+#projects .buton_flex {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s ease-out;
+}
+
+#projects.visible .buton_flex:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.8s;
+}
+
+#projects.visible .buton_flex:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 1s;
+}
+
+
+
+/* ANIMACIONES PARA ELEMENTOS DE EXPERIENCIA DETALLADOS */
+.titulos h3,
+.titulos h4,
+.titulos h5 {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.5s ease-out;
+}
+
+#experiencia.visible .titulos h3,
+#estudidos.visible .titulos h3 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+#experiencia.visible .titulos h4,
+#estudidos.visible .titulos h4 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+#experiencia.visible .titulos h5,
+#estudidos.visible .titulos h5 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+/* ANIMACIONES PARA PÁRRAFOS DE EXPERIENCIA */
+.experienciapos p {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-out;
+}
+
+#experiencia.visible .experienciapos p:nth-child(1) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.6s;
+}
+
+#experiencia.visible .experienciapos p:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.7s;
+}
+
+#experiencia.visible .experienciapos p:nth-child(3) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.8s;
+}
+
+#experiencia.visible .experienciapos p:nth-child(4) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.9s;
+}
+
+#experiencia.visible .experienciapos p:nth-child(5) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1s;
+}
+
+/* ANIMACIONES RESPONSIVE CONSISTENTES */
+@media (max-width: 1024px) {
+    /* Asegurar que las animaciones funcionen en el nuevo layout flex */
+    .sobremi .div1,
+    .sobremi .div2,
+    .sobremi .div3 {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+    
+    .sobremi.visible .div1 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+    
+    .sobremi.visible .div2 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.4s;
+    }
+    
+    .sobremi.visible .div3 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.6s;
+    }
+    
+    /* Ajustar animaciones para proyectos en responsive */
+    .project-content h3,
+    .project-description p,
+    #projects .buton_flex {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/*RESPOSIVE*/
+
+
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+   
+    
+    /* SOBRE MÍ - Cambio a flexbox */
+    .sobremi .grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px 0;
+    }
+    
+    .sobremi .div1 {
+        order: 1;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sobremi .div1 h1 {
+        font-size: 3rem;
+    }
+    
+    .sobremi .div1 h2 {
+        font-size: 1.5rem;
+    }
+    
+    .sobremi .div2 {
+        order: 2;
+    }
+    
+    .sobremi .div3 {
+        order: 3;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .sobremi .div4 {
+        display: none;
+    }
+    
+    .sobremi .botones {
+        justify-content: center;
+        height: auto;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .sobremi .buton_flex {
+        width: 120px;
+        height: 45px;
+    }
+    
+    /* SKILLS - Tarjetas más anchas */
+    .skills-container {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 25px;
+    }
+    
+    .skills-category {
+        width: 100%;
+        max-width: none;
+    }
+    
+   
+    
+    /* PROYECTOS - Imagen abajo, texto arriba */
+    .project-article {
+        flex-direction: column;
+        gap: 30px;
+        margin: 60px 0;
+    }
+    
+    .project-article:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .project-content {
+        width: 100%;
+        order: 1;
+    }
+    
+    .project-image {
+        width: 100%;
+        order: 2;
+    }
+    
+    .project-image img {
+        height: 250px;
+    }
+    
+   
+    
+    /* FOOTER - 100widht */
+    footer {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .posicion_foot {
+        width: 90%;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Móvil (480px - 768px) */
+@media (max-width: 768px) {
+    main {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    header {
+        padding: 0 3%;
+    }
+    
+    /* SOBRE MÍ - Ajustes móvil */
+    .sobremi {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 40px;
+    }
+    
+    .sobremi .div1 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .sobremi .div1 h2 {
+        font-size: 1.3rem;
+    }
+    
+    .sobremi .yo {
+        height: 200px;
+        width: 180px;
+    }
+    
+    .sobremi .botones {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .sobremi .buton_flex {
+        width: 110px;
+        height: 40px;
+    }
+    
+    .sobremi .miInfo {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    
+    /* SKILLS - Ajustes móvil */
+    .skills-section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-8);
+    }
+    
+    .skills-category {
+        padding: var(--space-4);
+    }
+    
+    .skill-name {
+        font-size: var(--text-base);
+    }
+    
+    /* EXPERIENCIA - Ajustes móvil */
+    .experienciapos {
+        width: 100%;
+    }
+    
+    .exp {
+        font-size: var(--text-3xl);
+    }
+    
+    /* PROYECTOS - Ajustes móvil */
+    #projects {
+        padding-top: 10%;
+    }
+    
+    .pro {
+        font-size: var(--text-3xl);
+    }
+    
+    .project-article {
+        margin: 40px 0;
+        gap: 20px;
+    }
+    
+    .project-image img {
+        height: 200px;
+    }
+    
+    .project-content h3 {
+        font-size: var(--text-xl);
+    }
+    
+    .project-description p {
+        font-size: var(--text-base);
+    }
+    
+    #projects .buton_flex {
+        width: 35%;
+        height: 45px;
+    }
+    
+    /* ESTUDIOS - Ajustes móvil */
+    #estudidos {
+        padding-top: 10%;
+    }
+    
+    /* FOOTER - Ajustes móvil */
+    footer {
+        padding: 20px 0;
+    }
+    
+    .posicion_foot {
+        width: 95%;
+    }
+    
+    .footer span {
+        font-size: 0.9rem;
+    }
+}
+
+/* Móvil pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    main {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    
+    /* SOBRE MÍ - Ajustes móvil pequeño */
+    .sobremi .div1 h1 {
+        font-size: 2rem;
+    }
+    
+    .sobremi .div1 h2 {
+        font-size: 1.1rem;
+    }
+    
+    .sobremi .yo {
+        height: 180px;
+        width: 160px;
+    }
+    
+    .sobremi .buton_flex {
+        width: 100px;
+        height: 38px;
+    }
+    
+    .sobremi .buton_flex p.none {
+        font-size: 0.9rem;
+    }
+    
+    .sobremi .miInfo {
+        font-size: 0.85rem;
+    }
+    
+    /* SKILLS - Ajustes móvil pequeño */
+    .skills-section {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .skills-category h2 {
+        font-size: var(--text-xl);
+    }
+    
+    .skill-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-1);
+    }
+    
+    .skill-percentage {
+        align-self: flex-end;
+        margin-top: -20px;
+    }
+    
+    /* EXPERIENCIA - Ajustes móvil pequeño */
+    .experiencieSection {
+        margin: 30px 0;
+    }
+    
+    .exp {
+        font-size: var(--text-2xl);
+    }
+    
+    /* PROYECTOS - Ajustes móvil pequeño */
+    .pro {
+        font-size: var(--text-2xl);
+    }
+    
+    .project-image img {
+        height: 180px;
+    }
+    
+    #projects .buton_flex {
+        width: 45%;
+        height: 42px;
+    }
+    
+    #projects .buton_flex p.none {
+        font-size: 0.9rem;
+    }
+    
+    /* FOOTER - Ajustes móvil pequeño */
+    .posicion_foot {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Desktop grande (más de 1200px) */
+@media (min-width: 1200px) {
+    
+    
+    /* PROYECTOS - Asegurar que en desktop se mantenga el layout original */
+    .project-article:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+/* Ajustes específicos para la animación del sobre mí en responsive */
+@media (max-width: 1024px) {
+    .sobremi .grid > * {
+        transform: none !important;
+        transition-delay: 0s !important;
+    }
+    
+    .sobremi.visible .grid > * {
+        opacity: 1;
+        transform: none !important;
+    }
+    
+    /* Animaciones específicas para el nuevo layout flex */
+    .sobremi .div1,
+    .sobremi .div2,
+    .sobremi .div3 {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+    
+    .sobremi.visible .div1 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+    
+    .sobremi.visible .div2 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.4s;
+    }
+    
+    .sobremi.visible .div3 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.6s;
+    }
+}
+
+/* Asegurar que el footer ocupe todo el ancho en móvil */
+@media (max-width: 768px) {
+    footer {
+        margin-left: -5%;
+        margin-right: -5%;
+        width: calc(100% + 10%);
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        margin-left: -3%;
+        margin-right: -3%;
+        width: calc(100% + 6%);
+    }
+}
