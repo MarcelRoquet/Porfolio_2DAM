@@ -513,10 +513,17 @@ button > a {
     border: solid black;
 }
 
+.buton_flex a {
+    color: var(--black); /* o var(--primary-color) si quieres azul específico */
+    text-decoration: none;
+}
+
+
 
 .buton_flex a {
     text-decoration: none;
-    color: inherit;
+    color: var(--black);
+    text-decoration: none;
     background: none;
     border: none;
     outline: none;
@@ -1375,9 +1382,7 @@ footer a {
         padding-right: 5%;
     }
     
-    /* header {
-        padding: 0 3%;
-    } */
+ 
     
     /* SOBRE MÍ - Ajustes móvil */
     .sobremi {
