@@ -11,33 +11,55 @@
 
 </head>
 <body>
-    <div id="floating-shapes"></div>
 
- 
+
 <header id="header">
-   
-        <div class="burguer" id="burguer-menu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+  <div class="header-container">
+    <div class="logo">Marcel Roquet</div>
 
-        <div class="menu" id="menu">
-          <a href="#sobremi">Sobre mí</a>
-           <a href="#skills">Skills</a>
-           <a href="#experiencia">Experiencia</a>
-           <a href="#projects">Proyectos</a>
-          <a href="#estudidos">Estudidos</a>
-         
-          
-          
-       
-      </div>
+    <!-- Menú de escritorio -->
+    <nav class="nav-desktop">
+      <a href="#sobremi" class="nav-link">
+        <span class="nav-text">Sobre mí</span>
+        <div class="nav-underline"></div>
+      </a>
 
+      <a href="#skills" class="nav-link">
+        <span class="nav-text">Skills</span>
+        <div class="nav-underline"></div>
+      </a>
 
-      
+      <a href="#experiencia" class="nav-link">
+        <span class="nav-text">Experiencia</span>
+        <div class="nav-underline"></div>
+      </a>
 
- 
+      <a href="#projects" class="nav-link">
+        <span class="nav-text">Proyectos</span>
+        <div class="nav-underline"></div>
+      </a>
+      <a href="#estudidos" class="nav-link">
+        <span class="nav-text">Estudios</span>
+        <div class="nav-underline"></div>
+      </a>
+    </nav>
+
+    <!-- Menú hamburguesa (solo visible en móvil) -->
+    <div class="burguer" id="burguer-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <!-- Menú móvil oculto -->
+  <div class="menu-mobile" id="menu-mobile">
+    <a href="#sobremi">Sobre mí</a>
+    <a href="#skills">Skills</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#estudidos">Estudios</a>
+  </div>
 </header>
 <main>
 
@@ -86,11 +108,17 @@
                 </button> 
                 </div>
 
-                <p class=" miInfo">Soy un estudiante de DAM cursando  practicas y me gustaría seguir formándome profesionalmente como desarrollador junior</p>
+                <p class=" miInfo">Soy un estudiante de DAM cursando  practicas y me gustaría seguir formándome profesionalmente como desarrollador. </p>
                 
             </div>
             <div class="div4"></div>
         </div>
+
+        <div class="scroll-down" id="scroll-down">
+            <p>Scroll para continuar</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
        
         
     </section>
