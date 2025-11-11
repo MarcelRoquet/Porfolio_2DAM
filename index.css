@@ -430,8 +430,6 @@ button > a {
 }
 
 
-#sobremi {
-}
 
 #prueba {
     width: 100px;
@@ -549,11 +547,6 @@ button > a {
     line-height: inherit;
 }
 
-/* Efectos hover para los botones */
-
-
-
-
 
 .buton_flex.github:hover {
     /* box-shadow: 0 8px 20px rgba(51, 51, 51, 0.3); */
@@ -606,10 +599,6 @@ i {
 
 .miInfo {
     font-size: 1rem;
-}
-
-#skills {
-   
 }
 
 /* sKILLS  */
