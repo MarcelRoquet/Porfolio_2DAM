@@ -104,39 +104,7 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-/* header {
-    position: fixed;
-    width: 100%;
-    height: 69px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 2000;
-    background: #dedede;
-    background: linear-gradient(180deg,rgba(222, 222, 222, 1) 0%, rgba(204, 204, 204, 1) 69%);
-    border-bottom: solid #000011;
-    border-bottom: none;
-    padding: 0 20px;
-    transition: all 0.3s ease;
-    padding: 0 4%; 
-    transition: all 0.4s ease; 
-    transform-origin: top;  Importante para la animación 
-    border-radius: 0px 0px 35px 35px;
-    box-shadow: 0 4px 12px rgb(0, 0, 0);
-}
 
-header.scrolled {
-    height: 68px; 
-    padding: 0 3%; 
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 25px rgb(0, 0, 0);
-    transform: scaleY(0.9); 
-    border-radius: 0px 0px 40px 40px;
-
-}
-
-header > div {
-    width: 60px;
-} */
 
 main {
     width: auto;
@@ -265,94 +233,7 @@ section.visible {
     transition-delay: 0.3s;
 }
 
-/*burguer*/
-/* .burguer {
-    width: 30px;
-    height: 25px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 100;
-    left: 1%;
-}
 
-.burguer .bar {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 5px;
-    background-color:  rgb(0, 0, 0);
-    transition: transform 0.3s;
-}
-
-.burguer .bar:nth-child(1) {
-    top: 5px;
-}
-
-.burguer .bar:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50);
-}
-
-.burguer .bar:nth-child(3) {
-    bottom: 0;
-}
-
-.burguer.open .bar:nth-child(1) {
-
-transform: translateY(9px) rotate(228deg);
-}
-
-.burguer.open .bar:nth-child(2) {
-    display: none;
-}
-
-.burguer.open .bar:nth-child(3) {
-    transform: translateY(-6px) rotate(-47deg);
-} */
-
-/*menu*/
-/* .menu {
-    position: fixed;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    transition: left 0.3s ease;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    z-index: 99;
-    border: 1px solid white;
-    background-color: rgb(225, 225, 218);
-    background: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3.3px);
-    -webkit-backdrop-filter: blur(3.3px);
-    border: 1px solid rgba(255, 255, 255, 0.99);
-} */
-
-/* .menu.open {
-    left: 0px;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.menu a {
-    color: #000011;
-    padding: 15px;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-    transition: background-color 0.3s;
-} */
-
-
-
-/*=========================================*/
 /* ---------- HEADER GENERAL ---------- */
 header {
   position: fixed;
@@ -548,10 +429,6 @@ button > a {
     gap: 6px;
 }
 
-/* .menu a:hover {
-    color: white;
-    background: rgba(86, 86, 86, 0.915);
-} */
 
 #sobremi {
 }
@@ -1834,7 +1711,7 @@ footer a {
   to { opacity: 1; }
 }
 
-/* Si tu sección hero tiene fondo claro, puedes cambiar el color */
+
 .sobremi {
   position: relative; /* necesario para posicionar el scroll-down dentro */
 }
@@ -1842,7 +1719,7 @@ footer a {
 
 @media (min-width: 1130px) {
     .sobremi .div1 h1 {
-        font-size: 4rem; /* ya estaba, ajusta si quieres menor */
+        font-size: 4rem; 
         word-wrap: break-word; /* evita overflow */
     }
 
