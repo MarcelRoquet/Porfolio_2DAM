@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -42,6 +42,11 @@
         <span class="nav-text">Estudios</span>
         <div class="nav-underline"></div>
       </a>
+
+      <a href="#contacto" class="nav-link">
+        <span class="nav-text">Contacto</span>
+        <div class="nav-underline"></div>
+      </a>
     </nav>
 
     <!-- Menú hamburguesa (solo visible en móvil) -->
@@ -59,6 +64,7 @@
     <a href="#experiencia">Experiencia</a>
     <a href="#projects">Proyectos</a>
     <a href="#estudidos">Estudios</a>
+    <a href="#contacto">Contacto</a>
   </div>
 </header>
 <main>
@@ -402,6 +408,46 @@
         </ol>
     </div>
     </section>
+
+ <section class="contacto" id="contacto">
+  <div class="contacto-header">
+    <h2>Contáctame</h2>
+    <p class="contacto-subtitle">¿Tienes una pregunta o propuesta? ¡Escríbeme!</p>
+  </div>
+  
+  <form class="form_contacto" id="contactForm">
+    <input type="hidden" name="to_email" value="17marcelroquet@gmail.com">
+    
+    <div class="form-row">
+      <div class="input_group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <span class="input-border"></span>
+      </div>
+
+      <div class="input_group">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+        <span class="input-border"></span>
+      </div>
+    </div>
+
+    <div class="input_group full-width">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje..." rows="4" required></textarea>
+      <span class="input-border"></span>
+    </div>
+
+    <button type="submit" class="btn-enviar" id="submitBtn">
+      Enviar
+      <i class="fas fa-paper-plane"></i>
+    </button>
+
+    <div id="mensajeRespuesta" class="mensaje-respuesta"></div>
+  </form>
+</section>
+
+
 
 </main>
 <footer>

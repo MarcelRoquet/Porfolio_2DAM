@@ -116,7 +116,7 @@ main {
 
 section {
     height: auto;
-    min-height: 75vh;
+     min-height: 70vh; 
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1790,5 +1790,302 @@ footer a {
 @keyframes coming-soon-pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.6; }
+}
+
+/*FORMULARIO*/
+/* ============================= */
+/* FORMULARIO DE CONTACTO */
+/* ============================= */
+
+.contacto {
+    padding: 3rem 0.2rem;
+    
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--secondary-color);
+    margin-bottom: 50px;
+}
+
+.contacto::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contacto::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contacto-header {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.contacto h2 {
+    font-size: 2rem;
+  
+    text-align: center;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contacto-subtitle {
+    font-size: 0.95rem;
+   
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.form_contacto {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+}
+
+.input_group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input_group label {
+    font-weight: 600;
+    
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.input_group input,
+.input_group textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 0.95rem;
+    color: var(--black);
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.input_group input::placeholder,
+.input_group textarea::placeholder {
+    color: var(--gray-400);
+    font-weight: 300;
+}
+
+.input_group input:hover,
+.input_group textarea:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.input_group input:focus,
+.input_group textarea:focus {
+    outline: none;
+    border-color: var(--white);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.input-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.input_group input:focus ~ .input-border,
+.input_group textarea:focus ~ .input-border {
+    width: 100%;
+}
+
+.btn-enviar {
+    background: var(--white);
+    
+    padding: 0.95rem 2.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-enviar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 102, 204, 0.1);
+    transition: left 0.4s ease;
+}
+
+.btn-enviar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-enviar:hover::before {
+    left: 100%;
+}
+
+.btn-enviar:active {
+    transform: translateY(0px);
+}
+
+.btn-enviar i {
+    transition: transform 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-enviar:hover i {
+    transform: translateX(2px);
+}
+
+/* Animación spinner */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+.mensaje-respuesta {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.mensaje-respuesta.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--white);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+.mensaje-respuesta.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--white);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+.btn-enviar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+    .contacto {
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .contacto h2 {
+        font-size: 1.7rem;
+    }
+
+    .contacto-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .input_group input,
+    .input_group textarea {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-enviar {
+        padding: 0.85rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .form_contacto {
+        gap: 1rem;
+    }
 }
 
