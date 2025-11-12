@@ -114,3 +114,89 @@ document.getElementById("scroll-down").addEventListener("click", () => {
     nextSection.scrollIntoView({ behavior: "smooth" });
   }
 });
+
+// -------------------- FORMULARIO CON EMAILJS -------------------- //
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const mensajeRespuesta = document.getElementById('mensajeRespuesta');
+
+
+  emailjs.init('yLODmq0a_1-Bt7897'); 
+
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Obtener valores del formulario
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      // Validación básica
+      if (!nombre || !email || !mensaje) {
+        mostrarMensaje('Por favor completa todos los campos', 'error');
+        return;
+      }
+
+      // Validar email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        mostrarMensaje('Por favor ingresa un correo válido', 'error');
+        return;
+      }
+
+      // Deshabilitar botón
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Enviando...</span><i class="fas fa-spinner fa-spin"></i>';
+
+      try {
+        // Preparar datos para EmailJS
+        const templateParams = {
+          from_name: nombre,
+          from_email: email,
+          message: mensaje,
+          reply_to: email
+        };
+
+        // Enviar email usando EmailJS
+       
+        const response = await emailjs.send(
+          'service_d0p977w',     
+          'template_fj9akp7',    
+          templateParams
+        );
+
+        console.log('Email enviado:', response);
+        
+        if (response.status === 200) {
+          mostrarMensaje('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
+          form.reset();
+        } else {
+          throw new Error('Error en el envío');
+        }
+
+      } catch (error) {
+        console.error('Error EmailJS:', error);
+        mostrarMensaje('Error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+      } finally {
+        // Restaurar botón
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar<i class="fas fa-paper-plane"></i>';
+      }
+    });
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    if (mensajeRespuesta) {
+      mensajeRespuesta.textContent = texto;
+      mensajeRespuesta.className = 'mensaje-respuesta ' + tipo;
+      
+      // Ocultar mensaje después de 5 segundos
+      setTimeout(() => {
+        mensajeRespuesta.classList.remove('success', 'error');
+        mensajeRespuesta.textContent = '';
+      }, 5000);
+    }
+  }
+});
