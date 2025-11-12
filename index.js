@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const submitBtn = document.getElementById('submitBtn');
   const mensajeRespuesta = document.getElementById('mensajeRespuesta');
 
-  // Inicializar EmailJS - REEMPLAZA CON TUS DATOS REALES
-  emailjs.init('yLODmq0a_1-Bt7897'); // Tu Public Key de EmailJS
+
+  emailjs.init('yLODmq0a_1-Bt7897'); 
 
   if (form) {
     form.addEventListener('submit', async function(e) {
@@ -160,10 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Enviar email usando EmailJS
-        // REEMPLAZA CON TUS SERVICE_ID Y TEMPLATE_ID
+       
         const response = await emailjs.send(
-          'service_d0p977w',     // Tu Service ID
-          'template_fj9akp7',    // Tu Template ID  
+          'service_d0p977w',     
+          'template_fj9akp7',    
           templateParams
         );
 
