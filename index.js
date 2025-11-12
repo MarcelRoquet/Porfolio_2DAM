@@ -1,3 +1,18 @@
+// -------------------- LOADER ANIMADO -------------------- //
+window.addEventListener('load', () => {
+  const loaderContainer = document.getElementById('loaderContainer');
+  if (loaderContainer) {
+    // Esperar a que todas las imágenes carguen
+    setTimeout(() => {
+      loaderContainer.classList.add('hidden');
+      // Remover el elemento del DOM después de la transición
+      setTimeout(() => {
+        loaderContainer.style.display = 'none';
+      }, 600);
+    }, 2300); // 2.3 segundos para completar la animación
+  }
+});
+
 // -------------------- NUEVO HEADER RESPONSIVE -------------------- //
 const burger = document.getElementById("burguer-menu");
 const mobileMenu = document.getElementById("menu-mobile");
