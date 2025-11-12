@@ -109,9 +109,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // -------------------- SCROLL DOWN HERO -------------------- //
 document.getElementById("scroll-down").addEventListener("click", () => {
-  const nextSection = document.querySelector("#skills");
-  if (nextSection) {
-    nextSection.scrollIntoView({ behavior: "smooth" });
+  const skillsSection = document.querySelector("#skills");
+  if (skillsSection) {
+    // Obtener la posición del elemento y hacer scroll con offset
+    const elementPosition = skillsSection.getBoundingClientRect().top + window.scrollY;
+    const offset = 80; // Dejar 80px de espacio desde la parte superior
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth"
+    });
   }
 });
 
