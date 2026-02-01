@@ -1,3 +1,60 @@
+/* ========== SKILLS CHIPS VISUALES ========== */
+.skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    justify-content: flex-start;
+}
+
+.skill-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    background: #f8fafc;
+    color: #222;
+    font-weight: 500;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    border-radius: 16px;
+    padding: 0.22em 0.8em 0.22em 0.7em;
+    font-size: 0.97rem;
+    box-shadow: 0 1px 4px rgba(255,107,53,0.05);
+    border: 1px solid #f1f5f9;
+    transition: background 0.2s, color 0.2s;
+    cursor: default;
+}
+.skill-chip i {
+    font-size: 1.1em;
+    opacity: 0.85;
+}
+.skill-chip:hover {
+    background: #ffe5d0;
+    color: #222;
+    transform: none;
+    box-shadow: 0 1px 4px rgba(255,107,53,0.05);
+}
+.skills-category h2 {
+    margin-bottom: 0.1em;
+    font-size: 1.08rem;
+    color: #ff6b35;
+    letter-spacing: 0.5px;
+}
+.skills-container {
+    margin-bottom: 1.2rem;
+}
+@media (max-width: 700px) {
+    .skills-chips {
+        gap: 0.18rem;
+    }
+    .skill-chip {
+        font-size: 0.87rem;
+        padding: 0.18em 0.5em 0.18em 0.4em;
+    }
+    .skills-category h2 {
+        font-size: 0.98rem;
+    }
+}
 :root {
   
   --primary-color: #0066cc;   
