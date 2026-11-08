@@ -1016,7 +1016,8 @@ ol{
 }
 .experienciapospadre{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 5%;
   width: auto;
 }
 .experiencialist.segundo{
@@ -1264,6 +1265,12 @@ footer a {
     opacity: 1;
     transform: translateX(0);
     transition-delay: 0.7s;
+}
+
+#estudidos.visible .experienciaItems:nth-child(3) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.9s;
 }
 
 /* ANIMACIONES PARA PROYECTOS - Elementos internos */
@@ -2258,4 +2265,3 @@ footer a {
         gap: 1rem;
     }
 }
-
