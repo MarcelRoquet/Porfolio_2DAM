@@ -35,12 +35,20 @@
 </header>
 
 <main class="matchverse-main">
+    <div class="mv-mode-toolbar">
+        <button class="mv-mode-toggle" id="mvModeToggle" type="button" aria-pressed="false">
+            <svg class="mv-mode-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.2 2 4.8 13.1h5.8L9.8 22l8.4-11.1h-5.8L13.2 2Z"></path>
+            </svg>
+            <span id="mvModeLabel">Activar Modo MatchVerse</span>
+        </button>
+    </div>
     <section class="mv-overview mv-reveal" id="overview">
         <div class="mv-intro">
             <p class="mv-kicker">Documentación técnica · DAM</p>
             <h1>Match<span>Verse</span></h1>
-            <h2>App Android nativa + Backend distribuido</h2>
-            <p>Arquitectura cliente-servidor desacoplada que separa la aplicación móvil nativa de la lógica de negocio mediante una API REST propia, persistencia híbrida y canales de eventos en tiempo real. Proyecto de ingeniería de software orientado al seguimiento de fútbol europeo, predicciones por puntos y comunicación interactiva entre usuarios.</p>
+            <h2>App Android nativa + Backend Laravel</h2>
+            <p>Arquitectura cliente-servidor desacoplada que separa la aplicación móvil nativa de la lógica de negocio mediante una API REST propia, persistencia híbrida y canales de eventos en tiempo real. Proyecto de ingeniería de software orientado al seguimiento de fútbol, predicciones por puntos y comunicación interactiva entre usuarios.</p>
             <div class="mv-meta">
                 <span><i class="fa-solid fa-layer-group"></i> Arquitectura cliente-servidor</span>
                 <span><i class="fa-solid fa-code-branch"></i> MVVM + Clean Architecture</span>
@@ -49,6 +57,12 @@
         </div>
         <div class="mv-logo-card">
             <img src="img/matchverse/Logo_SinFondo.png" alt="Logo de MatchVerse">
+            <span class="mv-logo-spark spark-a" aria-hidden="true"></span>
+            <span class="mv-logo-spark spark-b" aria-hidden="true"></span>
+            <span class="mv-logo-spark spark-c" aria-hidden="true"></span>
+            <span class="mv-logo-spark spark-d" aria-hidden="true"></span>
+            <span class="mv-logo-spark spark-e" aria-hidden="true"></span>
+            <span class="mv-logo-spark spark-f" aria-hidden="true"></span>
         </div>
     </section>
 
@@ -59,7 +73,7 @@
             <p>La aplicación nativa está construida en Kotlin con Jetpack Compose. La interfaz se divide en componentes declarativos y consume estados expuestos por ViewModels, evitando acoplar la UI a la infraestructura de red.</p>
         </div>
         <div class="mv-tech-grid">
-            <article class="mv-tech-card"><i class="fa-brands fa-android"></i><h3>Presentación declarativa</h3><p>Jetpack Compose, Navigation y componentes reutilizables para representar pantallas de partidos, grupos, perfiles y estadísticas.</p><code>Composable → ViewModel → UiState</code></article>
+            <article class="mv-tech-card"><i class="fa-brands fa-android"></i><h3>Presentación declarativa</h3><p>Jetpack Compose, Navigation y componentes reutilizables para representar pantallas de partidos, grupos, perfiles, estadísticas...</p><code>Composable → ViewModel → UiState</code></article>
             <article class="mv-tech-card"><i class="fa-solid fa-arrows-rotate"></i><h3>Estado y ciclo de vida</h3><p>MVVM/Clean Architecture separa presentación, casos de uso y repositorios. LiveData y DataStore mantienen preferencias y estados observables.</p><code>UI ← observable state</code></article>
             <article class="mv-tech-card"><i class="fa-solid fa-network-wired"></i><h3>Cliente HTTP</h3><p>Retrofit 2 y Gson tipan el contrato de la API. Coroutines ejecutan operaciones asíncronas y permiten gestionar loading, success y error.</p><code>Retrofit + Gson + Coroutines</code></article>
             <article class="mv-tech-card"><i class="fa-solid fa-bolt"></i><h3>Eventos en tiempo real</h3><p>Pusher WebSockets entrega mensajes de chat, reacciones y cambios de encuestas sin polling ni recarga de la vista.</p><code>Subscribe → Event → State</code></article>
@@ -73,7 +87,7 @@
         <div class="mv-section-heading">
             <p class="mv-kicker">02 · Capa servidor</p>
             <h2>Backend y API REST</h2>
-            <p>Laravel 12 centraliza la lógica de dominio y funciona como frontera entre Android y los proveedores externos. La API valida entradas, aplica autorización y devuelve recursos consistentes para el cliente.</p>
+            <p>Laravel 12 centraliza la lógica de dominio y funciona como frontera entre Android y los proveedores externos. La API valida entradas, aplica autorización y devuelve la información al cliente.</p>
         </div>
         <div class="mv-backend-layout">
             <div class="mv-laravel-flow" aria-label="Ciclo de vida de una petición y eventos en Laravel 12">
@@ -117,9 +131,9 @@
 
     <section class="mv-section mv-reveal" id="showcase">
         <div class="mv-section-heading">
-            <p class="mv-kicker">03 · Evidencia visual</p>
+            <p class="mv-kicker">03 · Ejemplo visual</p>
             <h2>Vistas implementadas</h2>
-            <p>Capturas reales de la aplicación Android. Todas las pantallas se presentan en un marco y proporción uniformes para comparar la navegación y los módulos funcionales.</p>
+            <p>Capturas reales de la aplicación Android. Todas las pantallas se presentan en un marco y proporción uniformes.</p>
         </div>
         <div class="mv-gallery">
             <button type="button" class="mv-shot" data-title="Predicciones" data-image="img/matchverse/Predicciones.png"><img src="img/matchverse/Predicciones.png" alt="Pantalla de predicciones" loading="lazy"><span>Predicciones</span></button>
@@ -156,6 +170,14 @@
     <button type="button" class="mv-lightbox-close" aria-label="Cerrar imagen"><i class="fa-solid fa-xmark"></i></button>
     <img id="mvLightboxImage" src="" alt="">
     <p id="mvLightboxTitle"></p>
+</div>
+<div class="mv-electric-overlay" id="mvElectricOverlay" aria-hidden="true">
+    <span class="mv-electric-ray ray-one"></span>
+    <span class="mv-electric-ray ray-two"></span>
+    <span class="mv-electric-ray ray-three"></span>
+    <span class="mv-electric-ray ray-four"></span>
+    <span class="mv-electric-spark spark-one"></span>
+    <span class="mv-electric-spark spark-two"></span>
 </div>
 <script src="matchverse.js"></script>
 </body>

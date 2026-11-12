@@ -1156,6 +1156,10 @@ ol li h4{
 
 }
 
+#projects .project-buttons .matchverse-project-link p.none {
+    font-size: 0.78rem;
+}
+
 /* Ajustar el contenedor de botones en proyectos */
 #projects .project-buttons {
     display: flex;

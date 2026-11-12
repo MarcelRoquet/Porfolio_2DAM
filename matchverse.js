@@ -42,6 +42,32 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.mv-reveal').forEach((section) => revealObserver.observe(section));
 
+const modeToggle = document.getElementById('mvModeToggle');
+const modeLabel = document.getElementById('mvModeLabel');
+const electricOverlay = document.getElementById('mvElectricOverlay');
+
+document.querySelectorAll('.mv-logo-spark').forEach((spark) => {
+  spark.style.setProperty('--mv-spark-delay', `${(Math.random() * 2.8).toFixed(2)}s`);
+  spark.style.setProperty('--mv-spark-duration', `${(1.4 + Math.random() * 1.8).toFixed(2)}s`);
+});
+
+modeToggle.addEventListener('click', () => {
+  const isActive = document.body.classList.toggle('matchverse-theme');
+  modeToggle.setAttribute('aria-pressed', String(isActive));
+  modeLabel.textContent = isActive
+    ? 'Desactivar Modo MatchVerse'
+    : 'Activar Modo MatchVerse';
+
+  if (isActive) {
+    electricOverlay.classList.remove('is-active');
+    void electricOverlay.offsetWidth;
+    electricOverlay.classList.add('is-active');
+    window.setTimeout(() => {
+      electricOverlay.classList.remove('is-active');
+    }, 1000);
+  }
+});
+
 const lightbox = document.getElementById('mvLightbox');
 const lightboxImage = document.getElementById('mvLightboxImage');
 const lightboxTitle = document.getElementById('mvLightboxTitle');
