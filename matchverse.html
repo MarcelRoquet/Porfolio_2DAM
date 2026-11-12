@@ -40,16 +40,15 @@
             <p class="mv-kicker">Documentación técnica · DAM</p>
             <h1>Match<span>Verse</span></h1>
             <h2>App Android nativa + Backend distribuido</h2>
-            <p>Proyecto de ingeniería de software orientado al seguimiento de fútbol europeo, predicciones por puntos y comunicación entre usuarios. La solución separa la aplicación cliente de la lógica de negocio mediante una API REST propia y canales de eventos en tiempo real.</p>
+            <p>Arquitectura cliente-servidor desacoplada que separa la aplicación móvil nativa de la lógica de negocio mediante una API REST propia, persistencia híbrida y canales de eventos en tiempo real. Proyecto de ingeniería de software orientado al seguimiento de fútbol europeo, predicciones por puntos y comunicación interactiva entre usuarios.</p>
             <div class="mv-meta">
                 <span><i class="fa-solid fa-layer-group"></i> Arquitectura cliente-servidor</span>
                 <span><i class="fa-solid fa-code-branch"></i> MVVM + Clean Architecture</span>
                 <span><i class="fa-solid fa-database"></i> SQL + NoSQL</span>
             </div>
         </div>
-        <div class="mv-logo-panel">
+        <div class="mv-logo-card">
             <img src="img/matchverse/Logo_SinFondo.png" alt="Logo de MatchVerse">
-            <div class="mv-status"><span></span> Sistema modular · API REST · WebSockets</div>
         </div>
     </section>
 
@@ -77,15 +76,35 @@
             <p>Laravel 12 centraliza la lógica de dominio y funciona como frontera entre Android y los proveedores externos. La API valida entradas, aplica autorización y devuelve recursos consistentes para el cliente.</p>
         </div>
         <div class="mv-backend-layout">
-            <div class="mv-architecture">
-                <div class="mv-arch-node node-client"><strong>Android</strong><small>Retrofit / Pusher</small></div>
-                <div class="mv-arch-line"><span>HTTPS · JSON</span></div>
-                <div class="mv-arch-node node-api"><strong>Laravel 12</strong><small>Controllers · Services · Policies</small></div>
-                <div class="mv-arch-line line-data"><span>ORM / Events</span></div>
-                <div class="mv-arch-node node-data"><strong>Persistencia</strong><small>PostgreSQL + MongoDB</small></div>
-                <div class="mv-arch-node node-external"><strong>Proveedores</strong><small>Football-Data.org · News API</small></div>
-                <div class="mv-arch-node node-realtime"><strong>Reverb / Pusher</strong><small>WebSockets</small></div>
-                <div class="mv-arch-node node-scheduler"><strong>Scheduler</strong><small>Sincronización automática</small></div>
+            <div class="mv-laravel-flow" aria-label="Ciclo de vida de una petición y eventos en Laravel 12">
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">01</span>
+                    <div><h3>Cliente Android</h3><p>Retrofit envía peticiones HTTPS autenticadas con Bearer Token / Sanctum. Pusher mantiene la suscripción a canales privados y de presencia.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">02</span>
+                    <div><h3>Routing &amp; Middleware</h3><p><code>routes/api.php</code> dirige la petición, valida el token, verifica correo/2FA, aplica Rate Limiting y controla CORS.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">03</span>
+                    <div><h3>Form Requests &amp; Policies</h3><p>Valida y sanea la entrada antes de ejecutar lógica, comprobando permisos y roles sobre el recurso solicitado.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">04</span>
+                    <div><h3>Controllers &amp; Services</h3><p>Los controladores delegan en servicios desacoplados el cálculo de predicciones, la gestión de grupos y el consumo de APIs externas.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">05</span>
+                    <div><h3>Models (Eloquent) &amp; Persistencia</h3><p>PostgreSQL gestiona usuarios, partidos, ligas y predicciones; MongoDB registra en paralelo auditoría y logs.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">06</span>
+                    <div><h3>Observers, Events &amp; Listeners</h3><p>Las mutaciones y el cierre de partidos mediante Laravel Scheduler disparan Observers y Events asíncronos.</p></div>
+                </article>
+                <article class="mv-lifecycle-step">
+                    <span class="mv-step-number">07</span>
+                    <div><h3>Broadcasting → App Android</h3><p>Reverb / Pusher emite por WebSockets mensajes, typing indicators, reacciones, encuestas y rankings, además de devolver JSON al cliente.</p></div>
+                </article>
             </div>
             <div class="mv-backend-notes">
                 <article><i class="fa-solid fa-shield-halved"></i><div><h3>Autenticación y autorización</h3><p>Google OAuth, verificación de correo, soporte 2FA y control de permisos por rol.</p></div></article>
@@ -122,7 +141,7 @@
             <h2>Flujo de ejecución</h2>
             <p>Vídeo de demostración del cliente Android y de los módulos conectados con el backend.</p>
         </div>
-        <div class="mv-video"><iframe src="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/preview" title="Vídeo demo de MatchVerse" allow="autoplay" allowfullscreen></iframe><a href="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir vídeo en Google Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        <div class="mv-video"><iframe src="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/preview" title="Vídeo demo de MatchVerse" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><a href="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir vídeo en Google Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
     </section>
 </main>
 
