@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentación técnica del proyecto MatchVerse: aplicación Android nativa y API Backend en Laravel.">
+    <title>MatchVerse | Marcel Roquet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="matchverse.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header id="header">
+    <div class="header-container">
+        <a class="logo" href="index.html">Marcel Roquet</a>
+        <nav class="nav-desktop" aria-label="Navegación principal">
+            <a href="#overview" class="nav-link"><span class="nav-text">Proyecto</span><div class="nav-underline"></div></a>
+            <a href="#android" class="nav-link"><span class="nav-text">Android</span><div class="nav-underline"></div></a>
+            <a href="#backend" class="nav-link"><span class="nav-text">Backend</span><div class="nav-underline"></div></a>
+            <a href="#showcase" class="nav-link"><span class="nav-text">Capturas</span><div class="nav-underline"></div></a>
+            <a href="index.html" class="nav-link nav-return"><span class="nav-text"><i class="fa-solid fa-arrow-left"></i> Portfolio</span><div class="nav-underline"></div></a>
+        </nav>
+        <div class="burguer" id="burguer-menu" role="button" tabindex="0" aria-label="Abrir menú" aria-expanded="false">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+    </div>
+    <div class="menu-mobile" id="menu-mobile">
+        <a href="#overview">Proyecto</a>
+        <a href="#android">Android</a>
+        <a href="#backend">Backend</a>
+        <a href="#showcase">Capturas</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al portfolio</a>
+    </div>
+</header>
+
+<main class="matchverse-main">
+    <section class="mv-overview mv-reveal" id="overview">
+        <div class="mv-intro">
+            <p class="mv-kicker">Documentación técnica · DAM</p>
+            <h1>Match<span>Verse</span></h1>
+            <h2>App Android nativa + Backend distribuido</h2>
+            <p>Proyecto de ingeniería de software orientado al seguimiento de fútbol europeo, predicciones por puntos y comunicación entre usuarios. La solución separa la aplicación cliente de la lógica de negocio mediante una API REST propia y canales de eventos en tiempo real.</p>
+            <div class="mv-meta">
+                <span><i class="fa-solid fa-layer-group"></i> Arquitectura cliente-servidor</span>
+                <span><i class="fa-solid fa-code-branch"></i> MVVM + Clean Architecture</span>
+                <span><i class="fa-solid fa-database"></i> SQL + NoSQL</span>
+            </div>
+        </div>
+        <div class="mv-logo-panel">
+            <img src="img/matchverse/Logo_SinFondo.png" alt="Logo de MatchVerse">
+            <div class="mv-status"><span></span> Sistema modular · API REST · WebSockets</div>
+        </div>
+    </section>
+
+    <section class="mv-section mv-reveal" id="android">
+        <div class="mv-section-heading">
+            <p class="mv-kicker">01 · Capa cliente</p>
+            <h2>Aplicación Android</h2>
+            <p>La aplicación nativa está construida en Kotlin con Jetpack Compose. La interfaz se divide en componentes declarativos y consume estados expuestos por ViewModels, evitando acoplar la UI a la infraestructura de red.</p>
+        </div>
+        <div class="mv-tech-grid">
+            <article class="mv-tech-card"><i class="fa-brands fa-android"></i><h3>Presentación declarativa</h3><p>Jetpack Compose, Navigation y componentes reutilizables para representar pantallas de partidos, grupos, perfiles y estadísticas.</p><code>Composable → ViewModel → UiState</code></article>
+            <article class="mv-tech-card"><i class="fa-solid fa-arrows-rotate"></i><h3>Estado y ciclo de vida</h3><p>MVVM/Clean Architecture separa presentación, casos de uso y repositorios. LiveData y DataStore mantienen preferencias y estados observables.</p><code>UI ← observable state</code></article>
+            <article class="mv-tech-card"><i class="fa-solid fa-network-wired"></i><h3>Cliente HTTP</h3><p>Retrofit 2 y Gson tipan el contrato de la API. Coroutines ejecutan operaciones asíncronas y permiten gestionar loading, success y error.</p><code>Retrofit + Gson + Coroutines</code></article>
+            <article class="mv-tech-card"><i class="fa-solid fa-bolt"></i><h3>Eventos en tiempo real</h3><p>Pusher WebSockets entrega mensajes de chat, reacciones y cambios de encuestas sin polling ni recarga de la vista.</p><code>Subscribe → Event → State</code></article>
+        </div>
+        <div class="mv-flow" aria-label="Flujo de la aplicación Android">
+            <span>Usuario</span><b>→</b><span>Composable</span><b>→</b><span>ViewModel</span><b>→</b><span>Use case / Repository</span><b>→</b><span>Retrofit o Pusher</span>
+        </div>
+    </section>
+
+    <section class="mv-section mv-reveal" id="backend">
+        <div class="mv-section-heading">
+            <p class="mv-kicker">02 · Capa servidor</p>
+            <h2>Backend y API REST</h2>
+            <p>Laravel 12 centraliza la lógica de dominio y funciona como frontera entre Android y los proveedores externos. La API valida entradas, aplica autorización y devuelve recursos consistentes para el cliente.</p>
+        </div>
+        <div class="mv-backend-layout">
+            <div class="mv-architecture">
+                <div class="mv-arch-node node-client"><strong>Android</strong><small>Retrofit / Pusher</small></div>
+                <div class="mv-arch-line"><span>HTTPS · JSON</span></div>
+                <div class="mv-arch-node node-api"><strong>Laravel 12</strong><small>Controllers · Services · Policies</small></div>
+                <div class="mv-arch-line line-data"><span>ORM / Events</span></div>
+                <div class="mv-arch-node node-data"><strong>Persistencia</strong><small>PostgreSQL + MongoDB</small></div>
+                <div class="mv-arch-node node-external"><strong>Proveedores</strong><small>Football-Data.org · News API</small></div>
+                <div class="mv-arch-node node-realtime"><strong>Reverb / Pusher</strong><small>WebSockets</small></div>
+                <div class="mv-arch-node node-scheduler"><strong>Scheduler</strong><small>Sincronización automática</small></div>
+            </div>
+            <div class="mv-backend-notes">
+                <article><i class="fa-solid fa-shield-halved"></i><div><h3>Autenticación y autorización</h3><p>Google OAuth, verificación de correo, soporte 2FA y control de permisos por rol.</p></div></article>
+                <article><i class="fa-solid fa-database"></i><div><h3>Persistencia híbrida</h3><p>PostgreSQL almacena usuarios, ligas, equipos, partidos, grupos y predicciones. MongoDB concentra logs, auditoría e incidencias.</p></div></article>
+                <article><i class="fa-solid fa-clock-rotate-left"></i><div><h3>Procesamiento programado</h3><p>Laravel Scheduler sincroniza marcadores y valida predicciones al finalizar los partidos para calcular puntos y rankings.</p></div></article>
+                <article><i class="fa-solid fa-tower-broadcast"></i><div><h3>Comunicación en tiempo real</h3><p>Laravel Reverb y Pusher publican eventos de chat, typing indicators, reacciones y encuestas grupales.</p></div></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="mv-section mv-reveal" id="showcase">
+        <div class="mv-section-heading">
+            <p class="mv-kicker">03 · Evidencia visual</p>
+            <h2>Vistas implementadas</h2>
+            <p>Capturas reales de la aplicación Android. Todas las pantallas se presentan en un marco y proporción uniformes para comparar la navegación y los módulos funcionales.</p>
+        </div>
+        <div class="mv-gallery">
+            <button type="button" class="mv-shot" data-title="Predicciones" data-image="img/matchverse/Predicciones.png"><img src="img/matchverse/Predicciones.png" alt="Pantalla de predicciones" loading="lazy"><span>Predicciones</span></button>
+            <button type="button" class="mv-shot" data-title="Chat de grupo" data-image="img/matchverse/Chat.png"><img src="img/matchverse/Chat.png" alt="Pantalla de chat" loading="lazy"><span>Chat en tiempo real</span></button>
+            <button type="button" class="mv-shot" data-title="Grupos privados" data-image="img/matchverse/Grupos.png"><img src="img/matchverse/Grupos.png" alt="Pantalla de grupos" loading="lazy"><span>Grupos</span></button>
+            <button type="button" class="mv-shot" data-title="Clasificación" data-image="img/matchverse/Classificacion.png"><img src="img/matchverse/Classificacion.png" alt="Pantalla de clasificación" loading="lazy"><span>Clasificación</span></button>
+            <button type="button" class="mv-shot" data-title="Alineaciones" data-image="img/matchverse/Alienieaciones.png"><img src="img/matchverse/Alienieaciones.png" alt="Pantalla de alineaciones" loading="lazy"><span>Alineaciones</span></button>
+            <button type="button" class="mv-shot" data-title="Equipos favoritos" data-image="img/matchverse/EquiposFavs.png"><img src="img/matchverse/EquiposFavs.png" alt="Pantalla de equipos favoritos" loading="lazy"><span>Equipos favoritos</span></button>
+            <button type="button" class="mv-shot" data-title="Ficha de equipo" data-image="img/matchverse/imagenEquipo.png"><img src="img/matchverse/imagenEquipo.png" alt="Ficha de equipo" loading="lazy"><span>Ficha de equipo</span></button>
+            <button type="button" class="mv-shot" data-title="Perfil de jugador" data-image="img/matchverse/perfilJugador.png"><img src="img/matchverse/perfilJugador.png" alt="Perfil de jugador" loading="lazy"><span>Perfil de jugador</span></button>
+            <button type="button" class="mv-shot" data-title="Noticias" data-image="img/matchverse/Noticias.png"><img src="img/matchverse/Noticias.png" alt="Pantalla de noticias" loading="lazy"><span>Noticias</span></button>
+            <button type="button" class="mv-shot" data-title="Perfil de usuario" data-image="img/matchverse/Perfil.png"><img src="img/matchverse/Perfil.png" alt="Perfil de usuario" loading="lazy"><span>Perfil</span></button>
+        </div>
+    </section>
+
+    <section class="mv-section mv-video-section mv-reveal" id="demo">
+        <div class="mv-section-heading">
+            <p class="mv-kicker">04 · Demo funcional</p>
+            <h2>Flujo de ejecución</h2>
+            <p>Vídeo de demostración del cliente Android y de los módulos conectados con el backend.</p>
+        </div>
+        <div class="mv-video"><iframe src="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/preview" title="Vídeo demo de MatchVerse" allow="autoplay" allowfullscreen></iframe><a href="https://drive.google.com/file/d/1jR9lfxM28s4_Ox5pja-9VUEj1MZ4rJ1h/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir vídeo en Google Drive <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+    </section>
+</main>
+
+<footer>
+    <div class="posicion_foot">
+        <div class="footer"><span>© 2025 Marcel. Todos los derechos reservados.</span></div>
+        <div class="footer"><span>Email: <a href="mailto:17marcelroquet@gmail.com">17marcelroquet@gmail.com</a> | Tel: <a href="tel:+34617165760">617 16 57 60</a></span></div>
+    </div>
+</footer>
+
+<div class="mv-lightbox" id="mvLightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button type="button" class="mv-lightbox-close" aria-label="Cerrar imagen"><i class="fa-solid fa-xmark"></i></button>
+    <img id="mvLightboxImage" src="" alt="">
+    <p id="mvLightboxTitle"></p>
+</div>
+<script src="matchverse.js"></script>
+</body>
+</html>
